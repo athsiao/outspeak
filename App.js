@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-
+import { Ionicons } from '@expo/vector-icons';
 // app pages
 import { HomeNavigator } from './pages/pageHome.js';
 import { PollsNavigator } from './pages/pagePolls.js';
@@ -23,25 +23,37 @@ const bottomTabNavigator = createBottomTabNavigator(
     Home: {
       screen: HomeNavigator,
       navigationOptions: {
-        title: 'Home'
+        title: 'Home',
+        tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-megaphone" color={tintColor} size={25} />
+            )
       },
     },
     Polls: {
       screen: PollsNavigator,
       navigationOptions: {
-        title: 'Polls'
+        title: 'Polls',
+        tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-podium" color={tintColor} size={25} />
+            )
       }
     },
     Search: {
       screen: SearchNavigator,
       navigationOptions: {
-        title: 'Search'
+        title: 'Search',
+        tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-search" color={tintColor} size={25} />
+            )
       }
     },
     Contacts: {
       screen: ContactsNavigator,
       navigationOptions: {
-        title: 'Contacts'
+        title: 'Contacts',
+        tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-contact" color={tintColor} size={25} />
+            )
       }
     }
   },

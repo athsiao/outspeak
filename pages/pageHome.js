@@ -2,8 +2,6 @@ import * as React from 'react'
 import { Image, View, Text, TouchableOpacity } from 'react-native';
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import CustomIcon from '../CustomIcon.js'
-
 
 class HomeScreen extends React.Component {
 
@@ -12,7 +10,7 @@ class HomeScreen extends React.Component {
         // home screen content
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text> This is my Home screen </Text>
-  
+
         </View>
       );
     }
@@ -25,9 +23,6 @@ export const HomeNavigator = createAppContainer(
       screen: HomeScreen,
       navigationOptions: {
         headerTitle: 'Home',
-        tabBarIcon: ({focused}) => (
-          <CustomIcon name='e901' size={25}/>
-        )
       }
     }
   })
