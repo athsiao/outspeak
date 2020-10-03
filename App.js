@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 }
 
-// navigates between screens
+// navigation
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: {
@@ -29,6 +29,7 @@ const bottomTabNavigator = createBottomTabNavigator(
                 <Ionicons name="ios-megaphone" color={tintColor} size={25} />
             )
       },
+      
     },
     Polls: {
       screen: PollsNavigator,
