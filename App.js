@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { HomeNavigator } from './Home.js';
+import { PollsNavigator } from './Polls.js';
 
 export default class App extends React.Component {
   render() {
@@ -11,25 +13,6 @@ export default class App extends React.Component {
   }
 }
 
-class HomeScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> This is my Home screen </Text>
-      </View>
-    );
-  }
-}
-
-class PollsScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> This is my Polls screen </Text>
-      </View>
-    );
-  }
-}
 
 class SearchScreen extends React.Component {
   render() {
@@ -54,13 +37,13 @@ class ContactsScreen extends React.Component {
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen: HomeNavigator,
       navigationOptions: {
         title: 'Home'
-      }
+      },
     },
     Polls: {
-      screen: PollsScreen,
+      screen: PollsNavigator,
       navigationOptions: {
         title: 'Polls'
       }
