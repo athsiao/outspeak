@@ -8,6 +8,7 @@ import { HomeNavigator } from './pages/pageHome.js';
 import { PollsNavigator } from './pages/pagePolls.js';
 import { SearchNavigator } from './pages/pageSearch.js';
 import { ContactsNavigator } from './pages/pageContacts.js';
+import { TestNavigator } from './pages/test.js';
 
 export default class App extends React.Component {
   render() {
@@ -53,6 +54,15 @@ const bottomTabNavigator = createBottomTabNavigator(
         title: 'Contacts',
         tabBarIcon: ({ tintColor }) => (
                 <Ionicons name="ios-contact" color={tintColor} size={25} />
+            )
+      }
+    },
+    Test: {
+      screen: TestNavigator,
+      navigationOptions: {
+        title: 'Test',
+        tabBarIcon: ({ tintColor }) => (
+                <Ionicons name="ios-flask" color={tintColor} size={25} />
             )
       }
     }
