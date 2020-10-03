@@ -2,10 +2,12 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { HomeNavigator } from './pageHome.js';
-import { PollsNavigator } from './pagePolls.js';
-import { SearchNavigator } from './pageSearch.js';
-import { ContactsNavigator } from './pageContacts.js';
+
+// app pages
+import { HomeNavigator } from './pages/pageHome.js';
+import { PollsNavigator } from './pages/pagePolls.js';
+import { SearchNavigator } from './pages/pageSearch.js';
+import { ContactsNavigator } from './pages/pageContacts.js';
 
 export default class App extends React.Component {
   render() {
