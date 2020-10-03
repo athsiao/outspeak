@@ -2,8 +2,10 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { HomeNavigator } from './Home.js';
-import { PollsNavigator } from './Polls.js';
+import { HomeNavigator } from './pageHome.js';
+import { PollsNavigator } from './pagePolls.js';
+import { SearchNavigator } from './pageSearch.js';
+import { ContactsNavigator } from './pageContacts.js';
 
 export default class App extends React.Component {
   render() {
@@ -13,27 +15,7 @@ export default class App extends React.Component {
   }
 }
 
-
-class SearchScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> This is my Search screen </Text>
-      </View>
-    );
-  }
-}
-
-class ContactsScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> This is my Contacts screen </Text>
-      </View>
-    );
-  }
-}
-
+// navigates between screens
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: {
@@ -49,13 +31,13 @@ const bottomTabNavigator = createBottomTabNavigator(
       }
     },
     Search: {
-      screen: SearchScreen,
+      screen: SearchNavigator,
       navigationOptions: {
         title: 'Search'
       }
     },
     Contacts: {
-      screen: ContactsScreen,
+      screen: ContactsNavigator,
       navigationOptions: {
         title: 'Contacts'
       }

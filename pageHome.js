@@ -7,7 +7,7 @@ class HomeScreen extends React.Component {
 
     render() {
       return(
-        
+        // home screen content
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text> This is my Home screen </Text>
   
@@ -16,6 +16,7 @@ class HomeScreen extends React.Component {
     }
   }
 
+// navigation bar
 export const HomeNavigator = createAppContainer(
   createStackNavigator({
     Home: {
