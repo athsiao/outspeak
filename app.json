@@ -4,11 +4,11 @@
     "slug": "outspeak",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/OutSpeak-Icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/AMERICA.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#77a0cb"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
