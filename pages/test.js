@@ -21,60 +21,60 @@ class TestScreen extends React.Component {
 class SingleRow extends React.Component {
   constructor(props) {
     super(props);
+
+    /* Temporary data */
+    // including apostrophes in contents will break this
     const slides = [
       {
-        key: '11 MB',
-        text: 'FREE ',
-        title: 'Mobile ',
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
+        id: 1,
+        name: 'Barack Obama',
+        contents: 'The cynics may be the loudest voices - but I promise you, they accomplish the least.',
+        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
         backgroundColor: '#20d2bb',
       },
       {
-        key: '52 MB',
-        title: 'Flight ',
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-        backgroundColor: '#febe29',
+        id: 2,
+        name: 'Barack Obama',
+        contents: 'Theres not a liberal America and a conservative America - theres the United States of America.',
+        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
+        backgroundColor: '#20d2bb',
       },
       {
-        key: '14 MB',
-        text: 'FREE',
-        title: 'Great ',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#22bcb5',
+        id: 3,
+        name: 'Barack Obama',
+        contents: 'The cynics may be the loudest voices - but I promise you, they accomplish the least.',
+        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
+        backgroundColor: '#20d2bb',
       },
       {
-        key: '45 MB',
-        title: 'Best ',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#3395ff',
+        id: 4,
+        name: 'Barack Obama',
+        contents: 'Theres not a liberal America and a conservative America - theres the United States of America.',
+        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
+        backgroundColor: '#20d2bb',
       },
       {
-        key: '33 MB',
-        title: 'Bus ',
-        text: 'FREE',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#f6437b',
+        id: 3,
+        name: 'Barack Obama',
+        contents: 'The cynics may be the loudest voices - but I promise you, they accomplish the least.',
+        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
+        backgroundColor: '#20d2bb',
       },
       {
-        key: '77 MB',
-        title: 'Train ',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#febe29',
+        id: 4,
+        name: 'Barack Obama',
+        contents: 'Theres not a liberal America and a conservative America - theres the United States of America.',
+        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
+        backgroundColor: '#20d2bb',
       },
     ];
     global.slides = slides;
   }
+
   onPressLearnMore() {
     alert('Hello');
   }
+
   render() {
     return (
       <View>
@@ -85,30 +85,38 @@ class SingleRow extends React.Component {
             marginRight: 0,
             marginTop: 0,
           }}>
+
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
             <Text style={{ color: '#606070', fontWeight: 'bold' }}>
               Recommended for You
             </Text>
+
             <Text style={{ color: '#228B22' }} onPress={() => alert('MORE')}>
               MORE
             </Text>
           </View>
+
           <View style={{ flexDirection: 'row', width: '100%' }}>
             <ScrollView>
-              {global.slides.map((item, key) => (
+              {global.slides.map((item, contents) => (
                 <View style={{ margin: 5 }}>
+
+                  {/* Profile picture */}
                   <Image
                     source={{
                       uri: item.uri,
                     }}
                     style={{ width: 70, height: 70, margin: 10 }}
                   />
+
                   <View
                     style={{
                       flexDirection: 'row',
                       justifyContent: 'space-between',
                     }}>
+
                     <Text
                       style={{ color: '#494949', fontWeight: '200' }}
                       onPress={() => {
@@ -116,7 +124,7 @@ class SingleRow extends React.Component {
                       }}>
                       {item.title}
                     </Text>
-                    <Text style={{ color: '#228B22' }}>&#8942;</Text>
+            
                   </View>
                   <View
                     style={{
@@ -124,9 +132,9 @@ class SingleRow extends React.Component {
                       justifyContent: 'space-between',
                     }}>
                     <Text style={{ color: '#606070', fontWeight: '200' }}>
-                      {item.key}
+                      {item.contents}
                     </Text>
-                    <Text style={{ color: '#228B22' }}>{item.text}</Text>
+                    
                   </View>
                 </View>
               ))}
