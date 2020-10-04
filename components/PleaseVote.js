@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 import { Card,Button,Icon,ListItem } from 'react-native-elements';
 
 export default class PleaseVote extends Component{
@@ -7,18 +7,33 @@ export default class PleaseVote extends Component{
         return(
             <View>
                 <Card>
-                <ListItem style={{ marginLeft: -15, marginRight: -15, marginBottom: -15, marginTop: -15}}
-                    roundAvatar
-                    title= {"Haven't Registered to vote yet? \n Register now in 3 steps!"}
-                    subtitle={<Button
-                      buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                      title='Register' />}
-                    linearGradientProps={{
-                      colors: ['#FF9800', '#F44336'],
-                      start: { x: 1, y: 0 },
-                      end: { x: 0.2, y: 0 },
-                    }}
-                />
+                <Text style={{ color: '#494949', fontWeight: '700', textAlign: 'center',
+                paddingTop: 5 }}>
+                  Haven't Registered to Vote Yet?
+                </Text>
+
+                <Text style={{ color: '#494949', fontWeight: '400', textAlign: 'center',
+                paddingVertical: 5, paddingBottom: 10 }}>
+                  Register in just 3 steps!
+                </Text>
+
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#db4946',
+                    paddingVertical: 10,
+                    paddingHorizontal: 5,
+                    borderRadius: 7,
+                    borderWidth: 1,
+                    borderColor: '#a83734'
+                  }}
+                  onPress={() => {
+                    alert(item.name + ' Clicked');
+                  }}>
+                    <Text style={{fontWeight: '600', textAlign: 'center', color: 'white'}}>
+                      Register Now!
+                    </Text>
+                </TouchableOpacity>
+
                 </Card>
 
             </View>
@@ -26,11 +41,11 @@ export default class PleaseVote extends Component{
       }
     };
 
-const styles = StyleSheet.create({
-    center: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      textAlign: "center",
-    },
-  });
+// const styles = StyleSheet.create({
+//     center: {
+//       flex: 1,
+//       justifyContent: "center",
+//       alignItems: "center",
+//       textAlign: "center",
+//     },
+//   });

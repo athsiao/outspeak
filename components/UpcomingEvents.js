@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { Card,Button,Icon,ListItem,Tile } from 'react-native-elements';
 
 export default class SigEvent extends Component{
       render(){
         return(
-            <View>
-                <Card>
-                <ListItem style={{ marginLeft: -15, marginRight: -15, marginBottom: -15, marginTop: -15}}
-                    roundAvatar
-                    title= {"Ideal Drugs in the Area"}
-                    subtitle={<Button
-                      buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                      title='View Event!' />}
-                    linearGradientProps={{
-                      colors: ['#FF9800', '#F44336'],
-                      start: { x: 1, y: 0 },
-                      end: { x: 0.2, y: 0 },
-                    }}
-                />
-                </Card>
+          <View>
+          <Card>
+          <Text style={{ color: '#494949', fontWeight: '700', textAlign: 'center',
+          paddingTop: 5, paddingBottom: 10 }}>
+            March for our Lives
+          </Text>
 
-            </View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#6d7acf',
+              paddingVertical: 10,
+              paddingHorizontal: 5,
+              borderRadius: 7,
+              borderWidth: 1,
+              borderColor: '#5663b8'
+            }}
+            onPress={() => {
+              alert(item.name + ' Clicked');
+            }}>
+              <Text style={{fontWeight: '600', textAlign: 'center', color: 'white'}}>
+                See Event Page
+              </Text>
+          </TouchableOpacity>
+
+          </Card>
+
+      </View>
             );
       }
     };

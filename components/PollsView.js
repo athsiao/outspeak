@@ -17,7 +17,7 @@ export default class PollsIntegration extends Component{
                     <Card.Divider/>
                     <CheckBox
                         key = {1}
-                        center
+                        //center
                         title='Right Now'
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
@@ -26,7 +26,7 @@ export default class PollsIntegration extends Component{
                     />
                     <CheckBox
                         key = {2}
-                        center
+                        //center
                         title='Next few years'
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
@@ -35,7 +35,7 @@ export default class PollsIntegration extends Component{
                     />
                     <CheckBox
                         key = {3}
-                        center
+                        //center
                         title='Further in the Future'
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
@@ -44,7 +44,7 @@ export default class PollsIntegration extends Component{
                     />
                     <CheckBox
                         key = {4}
-                        center
+                        //center
                         title="Doesn't need to be addressed"
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
