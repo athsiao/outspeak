@@ -60,12 +60,12 @@ class SingleRow extends React.Component {
       <View>
         <Card
           containerStyle={{
-            backgroundColor: '#FFFFFF',
+            backgroundColor: '#F8F8F8',
             marginLeft: 0,
             marginRight: 0,
             marginTop: 25,
           }}>
-          <View style={{ flexDirection: 'row', width: '100%' }}>
+          <View style={{ flexDirection: 'row', width: '100%'}}>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}>
@@ -78,10 +78,12 @@ class SingleRow extends React.Component {
                     }}>
                     <TouchableOpacity
                       style={{
-                        backgroundColor: '#C4C4C4',
+                        backgroundColor: 'white',
                         paddingVertical: 10,
                         paddingHorizontal: 20,
                         borderRadius: 7,
+                        borderWidth: 1,
+                        borderColor: '#E5E5E5'
                       }}
                       onPress={() => {
                         alert(item.name + ' Clicked');
