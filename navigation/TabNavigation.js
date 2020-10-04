@@ -25,14 +25,57 @@ function BottomStackNavigator() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Ionicons
+                name='ios-megaphone'
+                size={size}
+                color= {color}
+                />
           ),
           }}
                 />
-      <Tab.Screen name="Polls" component={PollsScreen} />
-      <Tab.Screen name="Seach" component={ContactScreen} />
-      <Tab.Screen name="Contact" component={ContactScreen} />
-      <Tab.Screen name="Test" component={Test} />
+      <Tab.Screen
+        name="Polls"
+        component={PollsScreen}
+        options={{
+          tabBarLabel: 'Polls',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="poll" color={color} size={size} />
+          ),
+          }}
+                />
+      <Tab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          tabBarLabel: 'Search',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="magnify" color={color} size={size} />
+          ),
+          }}
+                />
+      <Tab.Screen
+        name="Contact"
+        component={ContactScreen}
+        options={{
+          tabBarLabel: 'Contact',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="contacts" color={color} size={size} />
+          ),
+          }}
+                />
+      <Tab.Screen name="Test"
+      component={Test}
+      options={{
+        tabBarLabel: 'Home',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons
+              name='ios-flask'
+              size={size}
+              color= {color}
+              />
+        ),
+        }}
+              />
     </Tab.Navigator>
   )
 }
