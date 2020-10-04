@@ -18,7 +18,7 @@ const MainStackNavigator = ({ navigation }) => {
             name='Home' 
             component={HomeScreen} 
             options={{ 
-              title: 'Home Screen', 
+              title: 'Home', 
               headerRight: () => (
                 <Ionicons
                 name='ios-settings'
