@@ -10,7 +10,7 @@ import PollsScreen from "../pages/pollsPage";
 import SearchScreen from "../pages/searchPage";
 import SettingsScreen from "../pages/settingsPage";
 import Test from "../pages/test";
-import { TabBarIOS } from 'react-native';
+
 
 
 

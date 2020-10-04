@@ -1,21 +1,17 @@
 import React from "react";
-import { View, Button, Text, StyleSheet } from "react-native";
+import TwitterIntegration from '../components/Twitter';
+import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
+import { Card,Button,Icon } from 'react-native-elements';
 
-const HomeScreen = ({ navigation }) => {
-  return (
-    <View style={styles.center}>
-      <Text>This is the home screen</Text>
-    </View>
-  );
+class HomeScreen extends React.Component {
+  render () {
+    return (
+      <ScrollView>
+          <TwitterIntegration />
+      </ScrollView>
+    )
+  }
 };
 
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-  },
-});
 
 export default HomeScreen;
