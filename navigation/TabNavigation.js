@@ -63,7 +63,7 @@ function BottomStackNavigator() {
           ),
           }}
                 />
-      <Tab.Screen name="Test"
+      {/* <Tab.Screen name="Test"
       component={Test}
       options={{
         tabBarLabel: 'Test',
@@ -75,7 +75,7 @@ function BottomStackNavigator() {
               />
         ),
         }}
-              />
+              /> */}
     </Tab.Navigator>
   )
 }

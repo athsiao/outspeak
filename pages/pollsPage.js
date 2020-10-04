@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Image, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-elements';
+import PollsIntegration from '../components/PollsView';
 
 const PollsScreen = ({ navigation }) => {
   return (
@@ -8,6 +9,7 @@ const PollsScreen = ({ navigation }) => {
       <View style={{ marginTop: 25 }}>
         <SingleRow />
       </View>
+      <PollsIntegration />
     </ScrollView>
   );
 };

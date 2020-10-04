@@ -7,18 +7,54 @@ export default class PollsIntegration extends Component{
     constructor(props) {
         super(props);
         this.state = {keyChecked: 0};
+
+        const categories = [
+            {
+              q: 'When should governments address the climate crisis?',
+              a: 'Right now',
+              b: 'In a few years',
+              c: 'Not at all',
+              d: 'Dont know',
+            },
+            {
+                q: 'Should Biden add seats to the Supreme Court?',
+                a: 'Yes, its fair',
+                b: 'No, its unfair',
+                c: 'Probably?',
+                d: 'Dont care',
+              },
+              {
+                q: 'Should corporate tax laws be lowered?',
+                a: 'Yes, more corporations will repatriate assets',
+                b: 'No, keep it the same',
+                c: 'No, they should be raised',
+                d: 'Dont care',
+              },
+              {
+                q: 'Do you think donating money to politicians counts as free speech?',
+                a: 'Yes, allow unlimited money',
+                b: 'No, put a limit on donations',
+                c: 'Probably not when lobbyists do it',
+                d: 'Dont know',
+            },
+          ];
+          global.categories = categories;
       }
 
       render(){
         return(
-            <View>
-                <Card>
-                    <Card.Title>When should people address climate change?</Card.Title>
+            <View style={{ flexDirection: 'row', width: '100%'}}>
+                <ScrollView
+                 vertical={true}
+                 showsVerticalScrollIndicator={false}>
+                {global.categories.map((item, key) => (
+                    <Card>
+                    <Card.Title>{item.q}</Card.Title>
                     <Card.Divider/>
                     <CheckBox
                         key = {1}
                         //center
-                        title='Right Now'
+                        title={item.a}
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
                         checked={this.state.keyChecked == 1}
@@ -27,7 +63,7 @@ export default class PollsIntegration extends Component{
                     <CheckBox
                         key = {2}
                         //center
-                        title='Next few years'
+                        title={item.b}
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
                         checked={this.state.keyChecked == 2}
@@ -36,7 +72,7 @@ export default class PollsIntegration extends Component{
                     <CheckBox
                         key = {3}
                         //center
-                        title='Further in the Future'
+                        title={item.c}
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
                         checked={this.state.keyChecked == 3}
@@ -45,15 +81,17 @@ export default class PollsIntegration extends Component{
                     <CheckBox
                         key = {4}
                         //center
-                        title="Doesn't need to be addressed"
+                        title={item.d}
                         checkedIcon='dot-circle-o'
                         uncheckedIcon='circle-o'
                         checked={this.state.keyChecked == 4}
                         onPress={() => this.setState({keyChecked: 4})}
                     />
-                </Card>
+                    </Card>
+                    ))}
+            </ScrollView>
             </View>
-            );
+        );
       }
     };
 
