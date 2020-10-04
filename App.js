@@ -1,77 +1,47 @@
+import 'react-native-gesture-handler';
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { Ionicons } from '@expo/vector-icons';
-// app pages
-import { HomeNavigator } from './pages/pageHome.js';
-import { PollsNavigator } from './pages/pagePolls.js';
-import { SearchNavigator } from './pages/pageSearch.js';
-import { ContactsNavigator } from './pages/pageContacts.js';
-import { TestNavigator } from './pages/test.js';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default class App extends React.Component {
-  render() {
-    return (
-        <AppContainer />
-    );
-  }
+const Stack = createStackNavigator();
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
 }
 
-// navigation
-const bottomTabNavigator = createBottomTabNavigator(
-  {
-    Home: {
-      screen: HomeNavigator,
-      navigationOptions: {
-        title: 'Home',
-        tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-megaphone" color={tintColor} size={25} />
-            )
-      },
-      
-    },
-    Polls: {
-      screen: PollsNavigator,
-      navigationOptions: {
-        title: 'Polls',
-        tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-podium" color={tintColor} size={25} />
-            )
-      }
-    },
-    Search: {
-      screen: SearchNavigator,
-      navigationOptions: {
-        title: 'Search',
-        tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-search" color={tintColor} size={25} />
-            )
-      }
-    },
-    Contacts: {
-      screen: ContactsNavigator,
-      navigationOptions: {
-        title: 'Contacts',
-        tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-contact" color={tintColor} size={25} />
-            )
-      }
-    },
-    Test: {
-      screen: TestNavigator,
-      navigationOptions: {
-        title: 'Test',
-        tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-flask" color={tintColor} size={25} />
-            )
-      }
-    }
-  },
+const DetailsScreen = ({ navigation }) => {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Go to Home"
+        onPress={() => navigation.navigate('Home')}
+      />
+    </View>
+  );
+}
 
-  {
-    initialRouteName: 'Home'
-  }
-);
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home"
+        component={HomeScreen} 
+        option={{ title: 'Overview' }}/>
+        <Stack.Screen name="Details" component={DetailsScreen}
+        option={{ title: 'Details' }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-const AppContainer = createAppContainer(bottomTabNavigator);
+export default App;

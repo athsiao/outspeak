@@ -1,158 +1,119 @@
-import * as React from 'react'
-import {StyleSheet, Image, View, Text, ScrollView } from 'react-native';
-import { createAppContainer } from 'react-navigation'
-import { createStackNavigator } from 'react-navigation-stack'
-import { Card } from 'react-native-elements';
+import React, { Component } from 'react'
+import { View, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { Text, Avatar, withStyles, List } from 'react-native-ui-kitten'
 
+const DATA = [
+  {
+    id: 1,
+    postTitle: 'Planet of Nature',
+    avatarURI:
+      'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+    imageURI:
+      'https://images.unsplash.com/photo-1482822683622-00effad5052e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+    randomText:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+  },
+  {
+    id: 2,
+    postTitle: 'Lampost',
+    avatarURI:
+      'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+    imageURI:
+      'https://images.unsplash.com/photo-1482822683622-00effad5052e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+    randomText:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+  }
+]
 
+class _Test extends Component {
 
-class TestScreen extends React.Component {
   render() {
-    return (
-      <ScrollView>
-        <View style={{ marginTop: 25 }}>
-          <SingleRow />
+    const renderItem = ({ item }) => (
+      <View style={this.props.themedStyle.card}>
+    <Image
+      source={{ uri: item.imageURI }}
+      style={this.props.themedStyle.cardImage}
+    />
+    <View style={this.props.themedStyle.cardHeader}>
+      <Text category='s1' style={this.props.themedStyle.cardTitle}>
+        {item.postTitle}
+      </Text>
+      <TouchableOpacity
+        onPress={() => this.props.navigation.navigate('Profile')}>
+        <Avatar
+          source={{ uri: item.avatarURI }}
+          size='small'
+          style={this.props.themedStyle.cardAvatar}
+        />
+      </TouchableOpacity>
+    </View>
+    <View style={this.props.themedStyle.cardContent}>
+      <Text category='p2'>{item.randomText}</Text>
+    </View>
+  </View>
+  )
+
+    if (this.state.DATA != null) {
+      return (
+        <List
+          style={this.props.themedStyle.container}
+          data={this.state.DATA}
+          renderItem={renderItem}
+          keyExtractor={this.state.DATA.id}
+          refreshing={this.state.isRefreshing}
+          onRefresh={() => this.onRefresh()}
+        />
+      )
+    } else
+      return (
+        <View
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <ActivityIndicator size='large' />
         </View>
-      </ScrollView>
-    );
+      )
   }
 }
 
-class SingleRow extends React.Component {
-  constructor(props) {
-    super(props);
+export default Test = withStyles(_Test, theme => ({
+    container: {
+      flex: 1
+    },
+    card: {
+      backgroundColor: theme['color-basic-100'],
+      marginBottom: 25
+    },
+    cardHeader: {
+      padding: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    },
+    cardTitle: {
+      color: theme['color-basic-1000']
+    },
+    cardAvatar: {
+      marginRight: 16
+    },
+    cardContent: {
+      padding: 10,
+      borderWidth: 0.25,
+      borderColor: theme['color-basic-600']
+    }
+  })
+)
 
-    /* Temporary data */
-    // including apostrophes in contents will break this
-    const slides = [
-      {
-        id: 1,
-        name: 'Barack Obama',
-        contents: 'The cynics may be the loudest voices - but I promise you, they accomplish the least.',
-        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
-        backgroundColor: '#20d2bb',
-      },
-      {
-        id: 2,
-        name: 'Barack Obama',
-        contents: 'Theres not a liberal America and a conservative America - theres the United States of America.',
-        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
-        backgroundColor: '#20d2bb',
-      },
-      {
-        id: 3,
-        name: 'Barack Obama',
-        contents: 'The cynics may be the loudest voices - but I promise you, they accomplish the least.',
-        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
-        backgroundColor: '#20d2bb',
-      },
-      {
-        id: 4,
-        name: 'Barack Obama',
-        contents: 'Theres not a liberal America and a conservative America - theres the United States of America.',
-        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
-        backgroundColor: '#20d2bb',
-      },
-      {
-        id: 3,
-        name: 'Barack Obama',
-        contents: 'The cynics may be the loudest voices - but I promise you, they accomplish the least.',
-        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
-        backgroundColor: '#20d2bb',
-      },
-      {
-        id: 4,
-        name: 'Barack Obama',
-        contents: 'Theres not a liberal America and a conservative America - theres the United States of America.',
-        uri: 'https://static.politico.com/dims4/default/5b44cca/2147483647/resize/1160x%3E/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fc0%2Fb2%2Fa9fc15064ee1bfdc2a5175128beb%2F200409-obama-getty-773.jpg',
-        backgroundColor: '#20d2bb',
-      },
-    ];
-    global.slides = slides;
-  }
-
-  onPressLearnMore() {
-    alert('Hello');
-  }
-
-  render() {
-    return (
-      <View>
-        <Card
-          containerStyle={{
-            backgroundColor: '#FFFFFF',
-            marginLeft: 0,
-            marginRight: 0,
-            marginTop: 0,
-          }}>
-
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-
-            <Text style={{ color: '#606070', fontWeight: 'bold' }}>
-              Recommended for You
-            </Text>
-
-            <Text style={{ color: '#228B22' }} onPress={() => alert('MORE')}>
-              MORE
-            </Text>
-          </View>
-
-          <View style={{ flexDirection: 'row', width: '100%' }}>
-            <ScrollView>
-              {global.slides.map((item, contents) => (
-                <View style={{ margin: 5 }}>
-
-                  {/* Profile picture */}
-                  <Image
-                    source={{
-                      uri: item.uri,
-                    }}
-                    style={{ width: 70, height: 70, margin: 10 }}
-                  />
-
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                    }}>
-
-                    <Text
-                      style={{ color: '#494949', fontWeight: '200' }}
-                      onPress={() => {
-                        alert('Title ' + item.title + ' Clicked');
-                      }}>
-                      {item.title}
-                    </Text>
-            
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                    }}>
-                    <Text style={{ color: '#606070', fontWeight: '200' }}>
-                      {item.contents}
-                    </Text>
-                    
-                  </View>
-                </View>
-              ))}
-            </ScrollView>
-          </View>
-        </Card>
-      </View>
-    );
-  }
-}
-
-// navigation
-export const TestNavigator = createAppContainer(
+export const HomeNavigator = createAppContainer(
   createStackNavigator({
     Home: {
-      screen: TestScreen,
+      screen: HomeScreen,
       navigationOptions: {
-        headerTitle: 'Test',
+        headerTitle: 'Home',
+        headerRight: () => (
+            <Button
+              onPress={() => alert('This is a button!')}
+              title="Info"
+              color="#fff"
+            />),
       }
     }
   })
