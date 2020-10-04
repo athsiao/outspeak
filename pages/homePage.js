@@ -5,10 +5,6 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.center}>
       <Text>This is the home screen</Text>
-      <Button
-        title="Go to Settings Screen"
-        onPress={() => navigation.navigate("Settings")}
-      />
     </View>
   );
 };
