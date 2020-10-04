@@ -66,7 +66,7 @@ function BottomStackNavigator() {
       <Tab.Screen name="Test"
       component={Test}
       options={{
-        tabBarLabel: 'Home',
+        tabBarLabel: 'Test',
         tabBarIcon: ({ color, size }) => (
           <Ionicons
               name='ios-flask'

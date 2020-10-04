@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, Button } from 'react-native';
 import { Card } from 'react-native-elements';
 
 export default function Test() {
@@ -15,60 +15,46 @@ export default function Test() {
 class SingleRow extends React.Component {
   constructor(props) {
     super(props);
-    const slides = [
+    const categories = [
       {
-        key: '11 MB',
-        text: 'FREE ',
-        title: 'Mobile ',
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-        backgroundColor: '#20d2bb',
+        id: 1,
+        name: 'Trending',
       },
       {
-        key: '52 MB',
-        title: 'Flight ',
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-        backgroundColor: '#febe29',
+        id: 2,
+        name: 'Featured',
       },
       {
-        key: '14 MB',
-        text: 'FREE',
-        title: 'Great ',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#22bcb5',
+        id: 3,
+        name: 'Elections',
       },
       {
-        key: '45 MB',
-        title: 'Best ',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#3395ff',
+        id: 4,
+        name: 'LGBTQ+',
       },
       {
-        key: '33 MB',
-        title: 'Bus ',
-        text: 'FREE',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#f6437b',
+        id: 5,
+        name: 'Education',
       },
       {
-        key: '77 MB',
-        title: 'Train ',
-
-        uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-
-        backgroundColor: '#febe29',
+        id: 6,
+        name: 'Immigration',
+      },
+      {
+        id: 7,
+        name: 'Death Penalty',
+      },
+      {
+        id: 8,
+        name: 'Environmental',
       },
     ];
-    global.slides = slides;
+    global.categories = categories;
   }
   onPressLearnMore() {
     alert('Hello');
   }
+
   render() {
     return (
       <View>
@@ -77,52 +63,35 @@ class SingleRow extends React.Component {
             backgroundColor: '#FFFFFF',
             marginLeft: 0,
             marginRight: 0,
-            marginTop: 0,
+            marginTop: 25,
           }}>
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text style={{ color: '#606070', fontWeight: 'bold' }}>
-              Recommended for You
-            </Text>
-            <Text style={{ color: '#228B22' }} onPress={() => alert('MORE')}>
-              MORE
-            </Text>
-          </View>
           <View style={{ flexDirection: 'row', width: '100%' }}>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}>
-              {global.slides.map((item, key) => (
+              {global.categories.map((item, id) => (
                 <View style={{ margin: 5 }}>
-                  <Image
-                    source={{
-                      uri: item.uri,
-                    }}
-                    style={{ width: 70, height: 70, margin: 10 }}
-                  />
                   <View
                     style={{
                       flexDirection: 'row',
                       justifyContent: 'space-between',
                     }}>
                     <Text
-                      style={{ color: '#494949', fontWeight: '200' }}
+                      style={{ color: '#494949', fontWeight: '600' }}
                       onPress={() => {
-                        alert('Title ' + item.title + ' Clicked');
+                        alert(item.name + ' Clicked');
                       }}>
-                      {item.title}
+                        <View style={StyleSheet.screenContainer}>
+                      <Button title= {item.name} 
+                        color=""/>
+                        </View>
                     </Text>
-                    <Text style={{ color: '#228B22' }}>&#8942;</Text>
                   </View>
                   <View
                     style={{
                       flexDirection: 'row',
                       justifyContent: 'space-between',
                     }}>
-                    <Text style={{ color: '#606070', fontWeight: '200' }}>
-                      {item.key}
-                    </Text>
-                    <Text style={{ color: '#228B22' }}>{item.text}</Text>
                   </View>
                 </View>
               ))}
